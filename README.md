@@ -1,33 +1,3 @@
-# CODSOFT
-#include <iostream>
-#include <random>
-
-using namespace std;
-
-int main(){
-    random_device rd; 
-    mt19937 gen(rd()); 
-    uniform_int_distribution<> distrib(1, 10000); 
-
-    int random_number = distrib(gen);
-    
-    int guessed_number;
-    
-    cout << "Guess a number between 1 and 10000: ";
-    
-    while (true){
-        cin >> guessed_number;
-        
-    if (guessed_number < random_number){
-        cout << "Too low, Try again.";
-    } else if (guessed_number > random_number){
-        cout << "Too high, Try again.";
-    } else {
-        cout << "That is the right guess!" << endl;
-        break;
-    }
-    
-    }
-
-    return 0;
-}
+Vidhika Neema 
+CodSoft C++ Intern
+I have successfully completed 3 tasks, which are present in their respective files.
