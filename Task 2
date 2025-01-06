@@ -1,1 +1,41 @@
+#include <iostream>
 
+using namespace std;
+
+int main(){
+    
+    cout << "Calculator." << endl;
+    cout << "Addition: 1" << endl;
+    cout << "Subtraction: 2"<< endl;
+    cout << "Multiplication: 3" << endl;
+    cout << "Division: 4" << endl;
+    
+    int operation;
+    
+    cout << "Enter the number according to the the operation you wnat to carry out: ";
+    cin >> operation;
+    
+    
+    if (operation < 1 || operation > 4){
+        cout << "Invalid input" << endl;
+    }
+    
+    int num1, num2;
+    
+    cout << "Enter the first integer: ";
+    cin >> num1;
+    cout << "Enter the second integer: ";
+    cin >> num2;
+    
+    if (operation == 1){
+        cout << "Additition: " << (num1 + num2) << endl;
+    } else if (operation == 2){
+        cout << "Subtraction: " << (num1 - num2) << endl;
+    } else if (operation == 3){
+        cout << "Multiplication: "<< (num1 * num2) << endl;
+    } else {
+        cout << "Division: " << (num1 / num2) << endl;
+    }
+    
+    return 0;
+}
