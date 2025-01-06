@@ -1,1 +1,86 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
 
+int main() {
+    cout << "To-do list: " << endl;
+    
+    vector<string> todoList;
+    int action;
+    int taskNumber;
+    string task;
+    int done;
+    
+    while (true){
+        cout << "Add a new task: 1" << endl;
+        cout << "View tasks: 2" << endl;
+        cout << "Delete tasks: 3" << endl;
+        cout << "Mark as done: 4" << endl;
+        cout << "Exit the program: 5" << endl;
+        
+        cout << "Enter the number corresponding to the action you want to perform: ";
+        cin >> action;
+        
+        if (action < 1 || action > 5){
+        cout << "Invalid input. Please try again." << endl;
+        continue; 
+        }
+        
+        if (action == 5){
+            cout << "Bye!" << endl;
+            break;
+        }
+        
+        if (action == 1){
+            cout << "Enter your task: ";
+            cin.ignore();
+            getline(cin, task);
+            todoList.push_back(task);
+            cout << "Task added successfully" << endl;
+        } else if (action == 2) {
+            if (todoList.empty()){
+                cout << "No task in your to-do list." << endl;
+            } else {
+                cout << "\n Your To-Do list is as follows: " <<endl;
+                for (size_t i = 0; i < todoList.size(); ++i){
+                    cout << i + 1 << ". " << todoList[i] << endl;
+                }
+            }
+        }
+        else if (action == 3){
+            if (todoList.empty()){
+                cout << "No task present in your to-do list." << endl;
+            } else {
+                cout << "\n Enter the task number to delete: ";
+                cin >> taskNumber;
+                
+                if (taskNumber < 1 || taskNumber > todoList.size()) {
+                    cout << "Non existent task." << endl;
+                } else {
+                    todoList.erase(todoList.begin() + taskNumber - 1);
+                    cout << "Success!" << endl;
+                }
+            }
+        }
+        else if (action == 4) {
+            if (todoList.empty()) {
+                cout << "Invalid input." << endl;
+            } else {
+                cout << "\n Enter the task number you want to mark as done.";
+                cin >> done;
+                
+                if (done < 1 || done > todoList.size()) {
+                    cout << "Invalid input." << endl;
+                } else {
+                    todoList[done - 1] += " (completed) ";
+                    cout << "Marked as done" << endl;
+                }
+            }
+        }
+        
+        }
+        return 0; 
+    }
+    
+    
